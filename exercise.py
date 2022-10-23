@@ -22,7 +22,7 @@ def generate_s_matrix(n_rows):
     result = np.ones((n_rows, n_rows))
     result[1:-1, 1:-1] = 0
 
-    return result
+    return result.astype(int)
 
 # 2)
 
