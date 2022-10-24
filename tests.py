@@ -22,7 +22,7 @@ from ols import *
 # print('100x100 matrix time is: ' + str(time_numpy_100))
 
 # print(extract_estimator('campus.csv'))
-# print(extract_variable_means('campus.csv'))
+print(extract_variable_means('campus.csv'))
 
 # x = [[1, 2],
 #      [2, 3],

@@ -15,13 +15,31 @@ def extract_variable_means(dataset_filname: str):
 
     Returns
     =======
-    mean values of the number of total campus crimes, employed
+    a dictionary of mean values of the number of total campus crimes, employed
     police officers, and total college enrollment
     """
     origin_df = pd.read_csv(dataset_filname)
     new_df = origin_df.dropna()
 
-    return np.mean(new_df[['crime', 'police', 'enroll']], axis=0)
+    total_crime = 0
+    total_police = 0
+    total_college_enroll = 0
+    result = {}
+
+    for crime in new_df['crime']:
+        total_crime += crime
+
+    for police in new_df['police']:
+        total_police += police
+
+    for student in new_df['enroll']:
+        total_college_enroll += student
+
+    result['mean_crimes'] = total_crime / len(new_df['crime'])
+    result['mean_police'] = total_police / len(new_df['police'])
+    result['mean_student'] = total_college_enroll / len(new_df['enroll'])
+
+    return result
 
 def extract_estimator(dataset_filname: str):
     """Calculates the ols estimator vector
